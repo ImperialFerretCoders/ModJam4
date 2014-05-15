@@ -1,6 +1,6 @@
 package imperialferretcoders.minecraft.based.items
 
-import net.minecraft.item.{ItemDoor, Item, ItemStack}
+import net.minecraft.item.{Item, ItemStack}
 import net.minecraft.world.World
 import net.minecraft.entity.player.EntityPlayer
 import net.minecraft.creativetab.CreativeTabs
