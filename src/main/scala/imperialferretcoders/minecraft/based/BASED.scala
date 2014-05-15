@@ -9,7 +9,7 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent
 import cpw.mods.fml.common.event.FMLInitializationEvent
 
 @Mod(modid = "based", name = "Bio-Adaptive Synthetic Environment Deployment", version = "0.0.0", modLanguage = "scala")
-object BioMod {
+object BASED {
   @Mod.EventHandler
   def PreInit(event: FMLPreInitializationEvent) {
 
