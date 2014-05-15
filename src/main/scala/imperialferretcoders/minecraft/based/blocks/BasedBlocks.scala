@@ -1,27 +1,16 @@
 package imperialferretcoders.minecraft.based.blocks
 
-import net.minecraft.block.Block
-import net.minecraft.creativetab.CreativeTabs
 import cpw.mods.fml.common.registry.GameRegistry
-import net.minecraft.block.material.Material
 
 /**
- *
- */
-class BasedBlock(material:Material) extends Block(material:Material) {
-  setCreativeTab(CreativeTabs.tabMisc)
-
-}
-
-/**
- *
+ *  Initialisation for all the blocks in this mod.
  */
 object BasedBlocks {
 
   def init {
     // All blocks need to be listed here.
     val blocks = Array(
-      new RandomBlock
+      new BlockTemplate
     )
 
     for (block <- blocks) {
