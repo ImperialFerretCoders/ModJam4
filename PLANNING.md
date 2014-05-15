@@ -6,8 +6,7 @@
     properties (growth rate, resource consumption multipliers, regeneration capabilities, materials it can grow
     "through", etc.)
     - Energy/resource consumption as basic properties of traits - more traits == more expensive to "run"
-    - "Energy/resource" actually probably be some sort of "food" - agar slurry :P?
-        - Need algae added to craft this with
+    - "Energy/resource" actually probably be some sort of "food"
 - How does it spread, visually? 
     - Thaumcraft has some fun stuff with taint, might want to take some inspiration from there
     - Tendrils?
