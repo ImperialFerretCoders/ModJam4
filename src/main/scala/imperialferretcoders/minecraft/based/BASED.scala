@@ -2,16 +2,18 @@ package imperialferretcoders.minecraft.based
 
 
 import cpw.mods.fml.common.Mod
-import cpw.mods.fml.common.Mod.EventHandler
-import cpw.mods.fml.common.Mod.Instance
 import cpw.mods.fml.common.event.FMLPreInitializationEvent
 import cpw.mods.fml.common.event.FMLPostInitializationEvent
 import cpw.mods.fml.common.event.FMLInitializationEvent
+import org.apache.logging.log4j.LogManager
 
 @Mod(modid = "based", name = "Bio-Adaptive Synthetic Environment Deployment", version = "0.0.0", modLanguage = "scala")
 object BASED {
+  val logger = LogManager.getLogger("BASED")
+
   @Mod.EventHandler
   def PreInit(event: FMLPreInitializationEvent) {
+    this.logger.info("Loading BASED")
 
   }
   @Mod.EventHandler
@@ -19,7 +21,7 @@ object BASED {
 
   }
   @Mod.EventHandler
-  def init(event: FMLPostInitializationEvent) {
+  def postInit(event: FMLPostInitializationEvent) {
 
   }
 }
