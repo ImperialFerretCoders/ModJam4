@@ -14,7 +14,8 @@ object BasedBlocks {
     val blocks = Array(
       (new BlockAlgae, classOf[ItemAlgae]),
       (new BlockBasedFactory, classOf[ItemBlock]),
-      (new BlockKernel, classOf[ItemBlock])
+      (new BlockKernel, classOf[ItemBlock]),
+      (new BlockTendril, classOf[ItemBlock])
     )
 
     for ((block, item) <- blocks) {
