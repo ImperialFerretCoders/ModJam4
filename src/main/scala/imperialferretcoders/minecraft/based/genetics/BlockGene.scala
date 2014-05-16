@@ -4,17 +4,17 @@ import net.minecraft.world.World
 import net.minecraft.block.Block
 
 class BlockGene extends CodingGene {
-  def BlockTickLogic(world: World, x: Int, y: Int, z: Int, metadata: Int) = {}
+  def BlockTickLogic(state: OrganismState, world: World, x: Int, y: Int, z: Int, metadata: Int) = {}
 
   /*
-    Priority for conflicting genes suggesting a block for appearance goes to the first in the genome.
+    Priority for conflicting genes suggesting a block for appearance goes to the first active such in the genome.
     Null value means this gene has no "opinion" on what the block should be.
    */
-  def BlockIs(): Block = {
+  def BlockIs(state: OrganismState): Block = {
     return null
   }
 
-  def BlockDiesTo(): Block = {
+  def BlockDiesTo(state: OrganismState): Block = {
     return null
   }
 }

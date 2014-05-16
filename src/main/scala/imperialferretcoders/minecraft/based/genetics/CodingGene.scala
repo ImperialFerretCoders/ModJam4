@@ -12,4 +12,8 @@ class CodingGene extends Gene {
 
   //Resources required to manufacture this trait in the organism at grow time.
   def getCosts(): List[(String, Int)] = return costs
+
+  def setCosts(setTo: List[(String, Int)]) = {
+    costs = setTo;
+  }
 }

@@ -6,6 +6,7 @@ import collection.mutable.HashMap
 class OrganismState {
   //A mapping of (unlocalized) internal resource names to amounts. Arbitrary unit.
   protected var chemistry: Map[String, Int] = new HashMap()
+  protected var dead: Boolean = false
 
   def getResourceAmount(name: String): Int = {
     if (chemistry.contains(name)) {
@@ -24,5 +25,13 @@ class OrganismState {
     if (chemistry.contains(name)) {
       chemistry(name) += amt
     }
+  }
+
+  def isDead(): Boolean = {
+    return dead
+  }
+
+  def kill() = {
+    dead = true
   }
 }
