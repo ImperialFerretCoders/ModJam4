@@ -16,14 +16,6 @@ class ItemGenomeSampler extends Item {
   setTextureName("based:genomeSampler")
   setCreativeTab(CreativeTabs.tabMisc)
 
-  // todo: replace temp recipe
-  val crafting = CraftingManager.getInstance
-  val sampler = new ItemStack(this)
-  val diamond = new ItemStack(Item.getItemById(264))
-  val diamondBlock = new ItemStack(Block.getBlockFromName("diamond_block"))
-  crafting.addRecipe(sampler, "x  ", " xy", " y ", 'x'.asInstanceOf[Object], diamond, 'y'.asInstanceOf[Object], diamondBlock)
-  crafting.addRecipe(sampler, "  x", "yx ", " y ", 'x'.asInstanceOf[Object], diamond, 'y'.asInstanceOf[Object], diamondBlock)
-
   // Attempts to sample the genome of the targeted block.
   override def onItemRightClick(stack:ItemStack, world:World, player:EntityPlayer):ItemStack = {
     // todo

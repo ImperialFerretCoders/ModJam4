@@ -8,11 +8,10 @@ import net.minecraft.block.Block
  */
 object BasedItems {
 
-  def init {
-    // All mod items need to be listed here
+  def init  {
+    // All mod items need to be listed here, excluding those which are registered as blocks (subclasses of ItemBlock).
     val items = Array(
-      new ItemAlgae(Block.blockRegistry.getObject("algae").asInstanceOf[Block]),
-
+      new ItemAgar,
       new ItemPetridish,
       new ItemGenomeSampler
     )

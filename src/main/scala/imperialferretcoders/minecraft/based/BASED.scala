@@ -23,6 +23,7 @@ object BASED {
   def init(event: FMLInitializationEvent) {
     BasedBlocks.init
     BasedItems.init
+    BasedRecipes.init
 
   }
   @Mod.EventHandler
