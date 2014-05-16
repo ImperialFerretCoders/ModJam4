@@ -14,6 +14,4 @@ class ItemPetridish extends Item {
   setTextureName("based:petridish")
   setCreativeTab(CreativeTabs.tabMisc)
 
-  // todo: add recipe
-
 }
