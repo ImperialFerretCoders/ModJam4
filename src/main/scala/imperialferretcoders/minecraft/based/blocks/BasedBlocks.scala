@@ -1,6 +1,7 @@
 package imperialferretcoders.minecraft.based.blocks
 
 import cpw.mods.fml.common.registry.GameRegistry
+import imperialferretcoders.minecraft.based.items.ItemAlgae
 
 /**
  *  Initialisation for all the blocks in this mod.
@@ -8,13 +9,13 @@ import cpw.mods.fml.common.registry.GameRegistry
 object BasedBlocks {
 
   def init {
-    // All blocks need to be listed here.
+    // All blocks need to be listed here, format is (new BlockType, classOf[{subclass of ItemBlock}])
     val blocks = Array(
-      new BlockTemplate
+      (new BlockAlgae, classOf[ItemAlgae])
     )
 
-    for (block <- blocks) {
-      GameRegistry.registerBlock(block, block.getUnlocalizedName)
+    for ((block, item) <- blocks) {
+      GameRegistry.registerBlock(block, item, block.getUnlocalizedName)
     }
   }
 

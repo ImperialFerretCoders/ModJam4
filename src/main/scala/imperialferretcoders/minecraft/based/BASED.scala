@@ -21,8 +21,8 @@ object BASED {
   }
   @Mod.EventHandler
   def init(event: FMLInitializationEvent) {
-    BasedItems.init
     BasedBlocks.init
+    BasedItems.init
 
   }
   @Mod.EventHandler
