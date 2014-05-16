@@ -23,6 +23,7 @@ class BlockBasedFactory extends Block(Material.rock) {
   val textures = Array[IIcon](null, null, null, null)
 
   // Get the icon for the relevant side.
+  // todo: work out why the item icon isn't rendered correctly, front is facing the wrong way! :<
   // 0 = bottom, 1 = top, (2, 3, 4, 5) = ?
   @SideOnly(Side.CLIENT)
   override def getIcon(side: Int, meta: Int): IIcon = {
