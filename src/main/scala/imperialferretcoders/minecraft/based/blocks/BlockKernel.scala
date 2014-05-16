@@ -30,7 +30,7 @@ class BlockKernel extends Block(Material.plants) {
   // Register the two kernel textures
   @SideOnly(Side.CLIENT)
   override def registerBlockIcons(iconRegister: IIconRegister): Unit = {
-    firstStageIcon = iconRegister.registerIcon("based:kernel")
+    firstStageIcon = iconRegister.registerIcon("based:kernel_seed")
     secondStageIcon = iconRegister.registerIcon("based:kernel_grown")
     this.blockIcon = firstStageIcon
   }

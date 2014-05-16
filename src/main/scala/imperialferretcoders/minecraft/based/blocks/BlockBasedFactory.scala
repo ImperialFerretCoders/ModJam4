@@ -19,8 +19,8 @@ class BlockBasedFactory extends Block(Material.rock) {
   setHardness(20.0F)
   setStepSound(Block.soundTypePiston)
 
-  val textureNames = List("based:basedFactory_bottom", "based:basedFactory_top", "based:basedFactory_front", "based:basedFactory_side")
-  val textures = Array[IIcon](null, null, null, null)
+  val textureNames = List("based:basedFactory_side", "based:basedFactory_top", "based:basedFactory_front")
+  val textures = Array[IIcon](null, null, null)
 
   // Get the icon for the relevant side.
   // todo: work out why the item icon isn't rendered correctly, front is facing the wrong way! :<
@@ -35,7 +35,7 @@ class BlockBasedFactory extends Block(Material.rock) {
     else if (side == meta) {
       return textures{2}
     } else {
-      return textures{3}
+      return textures{0}
     }
   }
 
@@ -45,7 +45,6 @@ class BlockBasedFactory extends Block(Material.rock) {
     textures{0} = iconRegister.registerIcon(textureNames{0})
     textures{1} = iconRegister.registerIcon(textureNames{1})
     textures{2} = iconRegister.registerIcon(textureNames{2})
-    textures{3} = iconRegister.registerIcon(textureNames{3})
 
     // set the block icon to be the same texture as the front of the block
     this.blockIcon = textures{2}
