@@ -9,10 +9,10 @@ class GeneticTrait {
   var validPromoters:List[Promoter] = List()
 
   def AddValidGene(g:Gene) = {
-    validGenes += g
+    validGenes = validGenes ::: List(g)
   }
   def AddValidPromoter(p:Promoter) = {
-    validPromoters += p
+    validPromoters = validPromoters ::: List(p)
   }
 
   def IsPromoterValid(p:Promoter):Boolean = validPromoters.contains(p)

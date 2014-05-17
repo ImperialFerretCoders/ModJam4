@@ -6,7 +6,7 @@ class Gene {
   //A unique string of the characters A, C, T, and G, identifying this gene from others.
   protected var sequence:String = ""
 
-  def IsValidChar(c:Character):Boolean = c match {
+  def IsValidChar(c: Char): Boolean = c match {
     case 'A' => true
     case 'T' => true
     case 'C' => true

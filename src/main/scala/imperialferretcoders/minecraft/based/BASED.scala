@@ -7,12 +7,13 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent
 import cpw.mods.fml.common.event.FMLInitializationEvent
 import imperialferretcoders.minecraft.based.items.BasedItems
 import imperialferretcoders.minecraft.based.blocks.BasedBlocks
+import org.apache.logging.log4j.Logger
 
 import net.minecraftforge.common.config.Configuration
 
 @Mod(modid = "based", name = "Bio-Adaptive Synthetic Environment Deployment", version = "0.0.0", modLanguage = "scala")
 object BASED {
-  var logger = null
+  var logger: Logger = null
   //LogManager.getLogger("BASED")
   var config: Configuration = null
 
