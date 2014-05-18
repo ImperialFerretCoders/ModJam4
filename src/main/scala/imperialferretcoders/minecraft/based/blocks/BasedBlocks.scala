@@ -1,7 +1,7 @@
 package imperialferretcoders.minecraft.based.blocks
 
 import cpw.mods.fml.common.registry.GameRegistry
-import imperialferretcoders.minecraft.based.items.ItemAlgae
+import imperialferretcoders.minecraft.based.items.{ItemKernel, ItemAlgae}
 import net.minecraft.item.ItemBlock
 
 /**
@@ -14,7 +14,7 @@ object BasedBlocks {
     val blocks = Array(
       (new BlockAlgae, classOf[ItemAlgae]),
       (new BlockBasedFactory, classOf[ItemBlock]),
-      (new BlockKernel, classOf[ItemBlock]),
+      (new BlockKernel, classOf[ItemKernel]),
       (new BlockTendril, classOf[ItemBlock])
     )
 

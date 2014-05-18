@@ -6,5 +6,4 @@ package imperialferretcoders.minecraft.based.genetics.traits
 class TraitBlock extends Trait {
   setUnlocalizedName("block")
 
-
 }

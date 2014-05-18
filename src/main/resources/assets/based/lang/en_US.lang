@@ -4,3 +4,6 @@ tile.algae.name=Algae
 tile.basedFactory.name=Based Factory
 tile.kernel.name=Kernel
 tile.tendril.name=Tendril
+trait.tunnel.name=Tunnel
+trait.length.name=Length
+trait.width.name=Width
