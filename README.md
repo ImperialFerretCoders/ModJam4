@@ -5,6 +5,9 @@ and can quickly take over even the largest body of water!
 using 8 algae and a log in the middle. The only structure currently available is a 3x3 30m tunnel, with log walls and
 frequent torches.
 
+Most of the features planned for this mod have not yet been implemented, the idea is to make an interface/method to create
+much more powerful and complex kernels.
+
 ##Development Setup
 1. Clone the repo somewhere, change directory to it
 2. ```gradlew setupDecompWorkspace```
