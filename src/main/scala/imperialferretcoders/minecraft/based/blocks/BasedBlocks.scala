@@ -13,9 +13,9 @@ object BasedBlocks {
     // All blocks need to be listed here, format is (new BlockType, classOf[{subclass of ItemBlock}])
     val blocks = Array(
       (new BlockAlgae, classOf[ItemAlgae]),
-      (new BlockBasedFactory, classOf[ItemBlock]),
-      (new BlockKernel, classOf[ItemKernel]),
-      (new BlockTendril, classOf[ItemBlock])
+      //(new BlockBasedFactory, classOf[ItemBlock]),
+      (new BlockKernel, classOf[ItemKernel])
+      //(new BlockTendril, classOf[ItemBlock])
     )
 
     for ((block, item) <- blocks) {
