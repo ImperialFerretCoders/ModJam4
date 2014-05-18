@@ -36,7 +36,7 @@ class ItemAlgae(block: Block) extends ItemBlock(block) {
         }
 
         if (world.getBlock(x, y, z).getMaterial == Material.water && world.getBlockMetadata(x, y, z) == 0 && world.isAirBlock(x, y + 1, z)) {
-          world.setBlock(x, y + 1, z, block)
+          world.setBlock(x, y + 1, z, block, 1, 2)
 
           if (!entity.capabilities.isCreativeMode) {
             itemStack.stackSize -= 1

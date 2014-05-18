@@ -21,8 +21,7 @@ class BlockAlgae extends BlockBush {
   setStepSound(Block.soundTypeGrass)
 
   // Randomly activate this block for algae growth
-  val doesTick = BASED.config.get("Features", "Natural algae spread", true).getBoolean(true)
-  setTickRandomly(doesTick)
+  setTickRandomly(true)
 
   // Bounding box for harvesting
   setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.015625F, 1.0F)
@@ -54,20 +53,19 @@ class BlockAlgae extends BlockBush {
   override def updateTick(world: World, x: Int, y: Int, z: Int, random: Random): Unit = {
     super.updateTick(world, x, y, z, random)
 
-    // Ensure that the algae is properly lit - it requires photosynthesis to grow properly
-    if (world.getBlockLightValue(x, y + 1, z) >= 9) {
-      val growth: Int = world.getBlockMetadata(x, y, z)
+    // Check that this is a manually placed algae block
+    if (world.getBlockMetadata(x, y, z) > 0) {
+      // Ensure that the algae is properly lit - it requires photosynthesis to grow properly
+      if (world.getBlockLightValue(x, y + 1, z) >= 9) {
+        val growth: Int = world.getBlockMetadata(x, y, z)
 
-      // 20% chance of growth - could do this but meh
-      if (true) {
-        //random.nextInt(5) == 0) {
-        // Update the algae block, informing the client (last arg set to 2)
-        if (growth < 5) {
-          world.setBlockMetadataWithNotify(x, y, z, growth + 1, 2)
-        }
+        // 50% chance of growth per random tick
+        if (random.nextInt(2) == 0) {
+          // Update the algae block, informing the client (last arg set to 2)
+          if (growth < 5) {
+            world.setBlockMetadataWithNotify(x, y, z, growth + 1, 2)
+          }
 
-        if (true) {
-          //growth > 2) {
           // Choose a random adjacent block to expand into
           val xz = (random.nextInt(4)) match {
             case 0 => (x + 1, z)

@@ -7,6 +7,7 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent
 import cpw.mods.fml.common.event.FMLInitializationEvent
 import imperialferretcoders.minecraft.based.items.BasedItems
 import imperialferretcoders.minecraft.based.blocks.BasedBlocks
+import imperialferretcoders.minecraft.based.worldgen.BasedWorldGens
 import org.apache.logging.log4j.Logger
 
 import net.minecraftforge.common.config.Configuration
@@ -35,6 +36,8 @@ object BASED {
     BasedRecipes.init
     this.logger.info("Initializing tile entities...")
     BasedTileEntities.init
+    this.logger.info("Initializing world generators...")
+    BasedWorldGens.init
   }
 
   @Mod.EventHandler
