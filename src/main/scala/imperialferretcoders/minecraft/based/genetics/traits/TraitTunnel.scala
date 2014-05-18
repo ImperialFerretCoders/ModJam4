@@ -24,10 +24,8 @@ class TraitTunnel extends Trait {
   // Generate block updates for this trait
   override protected def getBlockUpdates(compound: NBTTagCompound, x: Int, y: Int, z: Int) : Seq[Tuple3[Tuple3[Int, Int, Int], Block, Int]] = {
 
-    //val wallBlock = GameRegistry.findBlock(compound.getString("tunnel.wallBlock.mod"), compound.getString("tunnel.wallBlock.name"))
     val wallBlock = GameRegistry.findBlock("minecraft", "log")
-    // todo: allow changing of block metadata
-    val wallBlockMeta = 0
+    val wallBlockMeta = compound.getInteger("tunnel.wallBlock.meta")
     val length = subTraits("length").asInstanceOf[Int]
     val width = subTraits("width").asInstanceOf[Int]
 
@@ -38,7 +36,7 @@ class TraitTunnel extends Trait {
       for (j <- -1 * width to width) {
         for (k <- -1 * width to width) {
           if (k == width || k == -1 * width || j == width || j == -1 * width) {
-            blocks += (((x + i, y + j, z + k), wallBlock, 0))
+            blocks += (((x + i, y + j, z + k), wallBlock, wallBlockMeta))
           }
         }
       }

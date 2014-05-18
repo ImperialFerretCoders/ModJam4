@@ -14,7 +14,8 @@ class TileEntityKernel extends TileEntity {
   override def writeToNBT(compound: NBTTagCompound) {
     super.writeToNBT(compound)
 
-    Trait.writeToNBT(compound, kernelTrait)
+    // todo: make this so it doesn't overwrite the block meta data
+    Trait.writeToNBT(compound, kernelTrait, Map())
   }
 
   override def readFromNBT(compound: NBTTagCompound) {

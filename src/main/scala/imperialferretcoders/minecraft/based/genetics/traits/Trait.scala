@@ -113,7 +113,12 @@ object Trait {
   )
 
   // Update the given NBT
-  def writeToNBT(compound: NBTTagCompound, traitClass: String) {
+  def writeToNBT(compound: NBTTagCompound, traitClass: String, extraMetaData: Map[String, Int]) {
+    // write any extra data - this is hacky!!! used for hardcoding meta data
+    for ((key, meta) <- extraMetaData) {
+      compound.setInteger(key, meta)
+    }
+
     if (compound != null && traits.contains(traitClass)) {
       traits(traitClass).writeToNBT(compound)
     }

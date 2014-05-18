@@ -59,7 +59,7 @@ class BlockKernel extends Block(Material.plants) with ITileEntityProvider {
     val kernel: TileEntityKernel = world.getTileEntity(x, y, z).asInstanceOf[TileEntityKernel]
     kernel.NBTcompound = new NBTTagCompound
 
-    Trait.writeToNBT(kernel.NBTcompound, kernel.kernelTrait)
+    Trait.writeToNBT(kernel.NBTcompound, kernel.kernelTrait, Map[String, Int]("tunnel.wallBlock.meta" -> itemStack.getItemDamage))
     world.markBlockForUpdate(x, y, z)
   }
 

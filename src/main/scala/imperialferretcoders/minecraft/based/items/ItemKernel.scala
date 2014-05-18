@@ -17,7 +17,7 @@ class ItemKernel(block: Block) extends ItemBlock(block) {
   override def onCreated(itemStack: ItemStack, world: World, player: EntityPlayer) {
     itemStack.stackTagCompound = new NBTTagCompound
 
-    Trait.writeToNBT(itemStack.stackTagCompound, "tunnel")
+    Trait.writeToNBT(itemStack.stackTagCompound, "tunnel", Map[String, Int]("tunnel.wallBlock.meta" -> itemStack.getItemDamage))
   }
 
   // Display trait data when hovering over a kernel
