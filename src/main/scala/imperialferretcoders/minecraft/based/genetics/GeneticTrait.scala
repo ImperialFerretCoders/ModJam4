@@ -1,6 +1,5 @@
 package imperialferretcoders.minecraft.based.genetics
 
-import cpw.mods.fml.common.registry.{GameRegistry, LanguageRegistry}
 import net.minecraft.util.StatCollector
 
 class GeneticTrait {
