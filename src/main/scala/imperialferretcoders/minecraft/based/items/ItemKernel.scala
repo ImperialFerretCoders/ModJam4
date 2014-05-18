@@ -5,7 +5,7 @@ import net.minecraft.entity.player.EntityPlayer
 import net.minecraft.world.World
 import net.minecraft.nbt.NBTTagCompound
 import net.minecraft.block.Block
-import imperialferretcoders.minecraft.based.genetics.traits.{TraitTunnel, Trait}
+import imperialferretcoders.minecraft.based.genetics.traits.Trait
 
 /**
  * Kernel item, contains information regarding the traits of this kernel
@@ -17,13 +17,13 @@ class ItemKernel(block: Block) extends ItemBlock(block) {
   override def onCreated(itemStack: ItemStack, world: World, player: EntityPlayer) {
     itemStack.stackTagCompound = new NBTTagCompound
 
-    Trait.writeNBT(itemStack.stackTagCompound, "tunnel")
+    Trait.writeToNBT(itemStack.stackTagCompound, "tunnel")
   }
 
   // Display trait data when hovering over a kernel
   override def addInformation(itemStack: ItemStack, player: EntityPlayer, list: java.util.List[_], flag: Boolean) {
     val info = list.asInstanceOf[java.util.List[String]]
 
-    Trait.printNBT(itemStack.stackTagCompound, info)
+    Trait.printFromNBT(itemStack.stackTagCompound, info)
   }
 }

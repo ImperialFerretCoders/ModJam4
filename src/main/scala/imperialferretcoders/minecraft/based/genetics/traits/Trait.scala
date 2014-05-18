@@ -2,21 +2,25 @@ package imperialferretcoders.minecraft.based.genetics.traits
 
 import net.minecraft.util.StatCollector
 import net.minecraft.nbt.NBTTagCompound
+import net.minecraft.block.Block
 
 /**
  *  Represents a generic trait
  */
 class Trait {
   // Internal name for describing the trait, used to select a localized name from lang files.
-  protected var unlocalizedName:String = ""
+  private var unlocalizedName:String = ""
 
   //val subTraits = Map[String, Trait]()
 
   // Write data to the NBT,
-  protected def writeNBT(compound: NBTTagCompound, namespace: String = "") { }
+  protected def writeToNBT(compound: NBTTagCompound, namespace: String = "") { }
 
   // Print the NBT
-  protected def printNBT(compound: NBTTagCompound, namespace: String = "", list: java.util.List[String]) { }
+  protected def printFromNBT(compound: NBTTagCompound, namespace: String = "", list: java.util.List[String]) { }
+
+  // Get a list of blocks to update when using this trait for building structures
+  protected def getBlockUpdates(compound: NBTTagCompound, x: Int, y: Int, z: Int) : Seq[Tuple3[Tuple3[Int, Int, Int], Block, Int]] = null
 
   // Localisation
   def setUnlocalizedName(x:String) = { unlocalizedName = x }
@@ -32,37 +36,33 @@ object Trait {
   )
 
   // Update the given NBT
-  def writeNBT(compound: NBTTagCompound, traitClass: String) {
+  def writeToNBT(compound: NBTTagCompound, traitClass: String) {
     if (compound != null) {
       val namespace = traitClass + "."
       compound.setString("type", traitClass)
 
-      traits(traitClass).writeNBT(compound, namespace)
+      traits(traitClass).writeToNBT(compound, namespace)
     }
   }
 
   // Print out the NBT entries to a list, where each string in the list is a different line
-  def printNBT(compound: NBTTagCompound, list: java.util.List[String]) {
+  def printFromNBT(compound: NBTTagCompound, list: java.util.List[String]) {
     if (compound != null && compound.hasKey("type")) {
       val name = compound.getString("type")
       val t = traits(name)
 
       list.add("Type: " + t.getLocalizedName)
 
-      t.printNBT(compound, name + ".", list)
+      t.printFromNBT(compound, name + ".", list)
     }
   }
 
   // Get a list of blocks that will require updating from an NBT entry
-  def getUpdateBlocks(compound: NBTTagCompound) {
-    /*if (compound != null && compound.hasKey("type")) {
-      val namespace = compound.getString("type")
-      val t = traits(namespace)
-
-      list.add("Type: " + t.getLocalizedName)
-
-      traits(compound.getString("type")).printNBT(compound, namespace)
-    }*/
+  def getBlockUpdates(compound: NBTTagCompound, x: Int, y: Int, z: Int): Seq[Tuple3[Tuple3[Int, Int, Int], Block, Int]] = {
+    if (compound != null && compound.hasKey("type")) {
+      return traits(compound.getString("type")).getBlockUpdates(compound, x, y, z)
+    } else {
+      return null
+    }
   }
-
 }

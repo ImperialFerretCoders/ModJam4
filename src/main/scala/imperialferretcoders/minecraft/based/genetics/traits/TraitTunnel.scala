@@ -28,14 +28,14 @@ class TraitTunnel extends Trait {
   val blockTorch = GameRegistry.findBlock("minecraft", "torch")
 
   // todo: fix nasty nasty, ie. hard coded data generation
-  override protected def writeNBT(compound: NBTTagCompound, namespace: String) {
+  override protected def writeToNBT(compound: NBTTagCompound, namespace: String) {
     compound.setInteger(namespace + "length", length)
     compound.setInteger(namespace + "width", width)
     compound.setString(namespace + "wallBlock.mod", "minecraft")
     compound.setString(namespace + "wallBlock.name", "log")
   }
 
-  override protected def printNBT(compound: NBTTagCompound, namespace: String, list: java.util.List[String]) {
+  override protected def printFromNBT(compound: NBTTagCompound, namespace: String, list: java.util.List[String]) {
     list.add("Length: " + compound.getInteger(namespace + "length"))
     list.add("Width: " + compound.getInteger(namespace + "width"))
 
@@ -46,7 +46,7 @@ class TraitTunnel extends Trait {
   }
 
   // Generate block updates for this trait
-  def getBlockUpdates(compound: NBTTagCompound, x: Int, y: Int, z: Int) : Seq[Tuple3[Tuple3[Int, Int, Int], Block, Int]] = {
+  override protected def getBlockUpdates(compound: NBTTagCompound, x: Int, y: Int, z: Int) : Seq[Tuple3[Tuple3[Int, Int, Int], Block, Int]] = {
 
     // Generate block data for this kernel, currently every kernel produces a 3x3 lit tunnel, surrounded with logs
     val blocks: MutableList[Tuple3[Tuple3[Int, Int, Int], Block, Int]] = new MutableList()
