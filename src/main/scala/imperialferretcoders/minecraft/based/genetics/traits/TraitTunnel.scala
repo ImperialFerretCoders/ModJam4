@@ -11,42 +11,25 @@ import net.minecraft.nbt.NBTTagCompound
 class TraitTunnel extends Trait {
   setUnlocalizedName("tunnel")
 
-  // A list of subtraits that this trait has
-  val length = 30
-  val width = 3
-  val wallBlock = GameRegistry.findBlock("minecraft", "log")
-  val wallBlockMeta = 0
-
-  //val subTraits = Map(
-  //  "length" -> Int,
-  //  "width" -> Int,
-  //  "wallblock" -> TraitBlock
-  //)
+  protected override val subTraits = Map[String, Any](
+    "length" -> 30,
+    "width" -> 3,
+    "wallblock" -> GameRegistry.findBlock("minecraft", "log")
+  )
 
   // Blocks used by the tunnel
   val blockAir = GameRegistry.findBlock("minecraft", "air")
   val blockTorch = GameRegistry.findBlock("minecraft", "torch")
 
-  // todo: fix nasty nasty, ie. hard coded data generation
-  override protected def writeToNBT(compound: NBTTagCompound, namespace: String) {
-    compound.setInteger(namespace + "length", length)
-    compound.setInteger(namespace + "width", width)
-    compound.setString(namespace + "wallBlock.mod", "minecraft")
-    compound.setString(namespace + "wallBlock.name", "log")
-  }
-
-  override protected def printFromNBT(compound: NBTTagCompound, namespace: String, list: java.util.List[String]) {
-    list.add("Length: " + compound.getInteger(namespace + "length"))
-    list.add("Width: " + compound.getInteger(namespace + "width"))
-
-    val block = GameRegistry.findBlock(compound.getString(namespace + "wallBlock.mod"), compound.getString(namespace + "wallBlock.name"))
-    if (block != null) {
-      list.add("WallBlock: " + block.getLocalizedName)
-    }
-  }
-
   // Generate block updates for this trait
   override protected def getBlockUpdates(compound: NBTTagCompound, x: Int, y: Int, z: Int) : Seq[Tuple3[Tuple3[Int, Int, Int], Block, Int]] = {
+
+    //val wallBlock = GameRegistry.findBlock(compound.getString("tunnel.wallBlock.mod"), compound.getString("tunnel.wallBlock.name"))
+    val wallBlock = GameRegistry.findBlock("minecraft", "log")
+    // todo: allow changing of block metadata
+    val wallBlockMeta = 0
+    val length = subTraits("length").asInstanceOf[Int]
+    val width = subTraits("width").asInstanceOf[Int]
 
     // Generate block data for this kernel, currently every kernel produces a 3x3 lit tunnel, surrounded with logs
     val blocks: MutableList[Tuple3[Tuple3[Int, Int, Int], Block, Int]] = new MutableList()
