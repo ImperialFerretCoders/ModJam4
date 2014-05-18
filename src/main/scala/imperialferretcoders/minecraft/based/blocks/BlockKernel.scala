@@ -14,7 +14,7 @@ import scala.collection.mutable.MutableList
 import imperialferretcoders.minecraft.based.BASED
 
 /**
- * Block for the cute little kernel's that build the various structures.
+ * Block for the cute little kernels that build the various structures.
  */
 class BlockKernel extends Block(Material.plants) {
   setBlockName("kernel")
@@ -44,6 +44,12 @@ class BlockKernel extends Block(Material.plants) {
   override def isOpaqueCube: Boolean = { return false }
   override def renderAsNormalBlock: Boolean = { return false }
   override def getRenderType(): Int = { return 1 }
+
+  // When a kernel is added to the world, it must retain it's trait data
+  override def onBlockAdded(world: World, x: Int, y: Int, z: Int) {
+    // todo
+  }
+
 
   // Right click activates the kernel, increasing it's size and causing it to send tendrils out in predifined directions
   override def onBlockActivated(world: World, x: Int, y: Int, z: Int, entity: EntityPlayer, t: Int, i: Float, j: Float, k: Float): Boolean = {
